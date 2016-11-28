@@ -18,6 +18,13 @@ apply plugin: 'application'
 
 mainClassName = "ApplicationKt"
 
+jar {
+    manifest {
+        attributes 'Main-Class': 'ApplicationKt'
+    }
+
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
 
 repositories {
     mavenCentral()
