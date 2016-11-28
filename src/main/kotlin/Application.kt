@@ -31,7 +31,6 @@ fun main(args: Array<String>) {
     app.delete("/").json(handler { store.deleteAll() })
 
     app.options("/*").json(handler { })
-
 }
 
 private fun baseUrl(request: Req): String {
